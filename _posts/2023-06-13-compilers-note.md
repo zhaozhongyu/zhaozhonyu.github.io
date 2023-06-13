@@ -14,7 +14,7 @@ comments: true
 
 #### `readToken`
 
-```js
+```javascript
 /**
  * 读出一个token
  * @param {number} code 
@@ -40,7 +40,8 @@ pp.readToken = function(code) {
     3. `'`, `"`此时往下读字符串
     4. 其他操作符, 如`*`,`/`, `%`, 三元操作符`?`, 以及逻辑操作符`|`, `&`, 
 4. Default 抛出错误.
-```js
+
+```javascript
 /**
  * 根据传入的code值, 区分获取不一样的token, 进入这个方法说明不是字母, 下划线
  * @param {number} code 
@@ -128,7 +129,7 @@ pp.getTokenFromCode = function(code) {
 ### 首先看数字读取
 #### `readInt`
 在readInt中主要做的操作是根据给的radix, 往下读出数字, 直到遇到一个非数字字符, 然后返回读到的数字(十进制). 这个方法是读取多进制和读取数字时的方法.
-```js
+```javascript
 // Read an integer in the given radix. Return null if zero digits
 // were read, the integer value otherwise. When `len` is given, this
 // will return `null` unless the integer has exactly `len` digits.
@@ -178,7 +179,7 @@ pp.readInt = function(radix, len, maybeLegacyOctalNumericLiteral) {
 
 #### `readRadixNumber`
 在读取出数字后, 还做了一个判断, 如果数字后接了字母n, 也就是`1234n`格式时, 此时js的语义里, 此数字为bigint, 此时抛弃readInt读到的数字, 使用`stringToBigInt`进行转换.最后完成为num类型.
-```js
+```javascript
 /**
  * 读出多进制的数字, 主要是2, 8, 16
  */
@@ -200,7 +201,7 @@ readNumber有一个参数, 如果是前面读到了`.`号的时候, 则此时会
 在往下读的过程中, 会分别判断`.`, `n`, `e`的存在, 并校验对应的语法.
 但获取数字的核心是`stringToNumber`函数, 该函数直接调用了`parseFloat`进行解析返回(朴实无华).
 
-```js
+```javascript
 /**
  * 读出10进制数字
  * @param {boolean} startsWithDot
