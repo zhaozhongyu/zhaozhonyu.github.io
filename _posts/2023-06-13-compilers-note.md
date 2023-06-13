@@ -2,8 +2,6 @@
 layout: post
 title: 编译原理笔记-词法分析(tokenizer)
 subtitle: 编译原理笔记-词法分析(tokenizer)-1
-gh-repo: daattali/beautiful-jekyll
-gh-badge: [star, fork, follow]
 tags: [compilers]
 comments: true
 ---
